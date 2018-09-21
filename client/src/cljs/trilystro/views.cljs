@@ -12,6 +12,7 @@
    [sodium.extensions :as nax]
    [iron.re-utils :refer [<sub >evt]]
    [iron.closure-utils :refer [debug?]]
+   [iron.chars :as char]
    [trilystro.db :as db]
    [trilystro.events :as events]
    [trilib.firebase :as fb]
@@ -148,7 +149,23 @@
        [na/button {:size "mini"
                    :icon "share"
                    :content "export current"
+                   :on-click #(>evt (modal/goto :modal-show-exports selected-lystros))}]]
+
+      [na/divider {:horizontal? true :section? true}
+       (str "Experimental (" char/gb-pound char/yen-sign ")")]
+
+      [na/divider {:horizontal? true :section? true}]
+      [na/container {}
+       [na/button {:size "mini"
+                   :icon "external share"
+                   :content "export all"
+                   :on-click #(>evt (modal/goto :modal-show-exports (<sub [::fb/lystros])))}]
+       [na/button {:size "mini"
+                   :icon "share"
+                   :content "export current"
                    :on-click #(>evt (modal/goto :modal-show-exports selected-lystros))}]]])])
+
+
 
 
 (defn login-logout-control []
