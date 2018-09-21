@@ -22,9 +22,9 @@
                  [secretary "1.2.3"]
                  [yogthos/config "1.1"]
                  [com.degel/re-frame-firebase "0.5.0"]
-                 [com.degel/iron "0.2.0"]
-                 [com.degel/sodium "0.10.0"]
-                 [trilib "0.4.1"]]
+                 [iron "0.5.1-SNAPSHOT"]
+                 [sodium "0.13.1-SNAPSHOT"]
+                 [trilib "0.6.0-SNAPSHOT"]]
 
   :plugins [[lein-cljsbuild "1.1.7"]
             [lein-garden "0.3.0"]]
@@ -57,9 +57,9 @@
    {:dependencies [[binaryage/devtools "0.9.9"]
                    [figwheel-sidecar "0.5.14"]
                    [com.cemerick/piggieback "0.2.2"]
-                   [re-frisk "0.5.3"]
+                   [re-frisk "0.5.3"]]
                    ;[day8.re-frame/trace "0.1.13"]
-                   ]
+
 
     :plugins      [[lein-figwheel "0.5.14"]
                    [lein-doo "0.1.8"]]}}
@@ -81,8 +81,8 @@
                     :language-in :ecmascript5
                     ;:closure-defines      {"re_frame.trace.trace_enabled_QMARK_" true}
                     :preloads             [devtools.preload #_ day8.re-frame.trace.preload]
-                    :external-config      {:devtools/config {:features-to-install :all}}
-                    }}
+                    :external-config      {:devtools/config {:features-to-install :all}}}}
+
 
     {:id           "min"
      :source-paths ["src/cljs"]
@@ -104,8 +104,8 @@
                     :output-to     "resources/public/js/compiled/test.js"
                     :output-dir    "resources/public/js/compiled/test/out"
                     :language-in :ecmascript5
-                    :optimizations :none}}
-    ]}
+                    :optimizations :none}}]}
+
 
   :main trilystro.server
 
@@ -113,5 +113,4 @@
 
   :uberjar-name "trilystro.jar"
 
-  :prep-tasks [["cljsbuild" "once" "min"]["garden" "once"] "compile"]
-  )
+  :prep-tasks [["cljsbuild" "once" "min"]["garden" "once"] "compile"])

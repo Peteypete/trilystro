@@ -9,7 +9,7 @@
                  [lambdaisland/uri "1.1.0"]
                  [re-frame "0.10.5"]
                  [re-frame-utils "0.1.0"]
-                 [com.degel/iron "0.2.0"]
+                 [iron "0.5.1-SNAPSHOT"]
                  [com.degel/re-frame-firebase "0.5.0"]]
   :plugins [[lein-cljsbuild "1.1.7"]]
   :cljsbuild
